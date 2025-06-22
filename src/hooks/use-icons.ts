@@ -1,0 +1,133 @@
+import sidebarItemsData from "../components/sidebar/sidebar-items.json";
+
+import houseIcon from "../assets/sidebar/house.svg";
+import productIcon from "../assets/sidebar/product.svg";
+import fileTextIcon from "../assets/sidebar/file-text.svg";
+import settingsIcon from "../assets/sidebar/settings.svg";
+import logOutIcon from "../assets/sidebar/log-out.svg";
+
+import filePlusIcon from "../assets/add-product/file-plus.svg";
+
+import editProductIcon from "../assets/edit-product/edit.svg";
+
+import darkPercentIcon from "../assets/modal/dark-percent.svg";
+import darkTagIcon from "../assets/modal/dark-tag.svg";
+import lightPercentIcon from "../assets/modal/light-percent.svg";
+import lightTagIcon from "../assets/modal/light-tag.svg";
+
+import dollarSignIcon from "../assets/product/dollar-sign.svg";
+import editIcon from "../assets/product/edit.svg";
+import plusIcon from "../assets/product/plus.svg";
+import refreshIcon from "../assets/product/refresh.svg";
+import searchIcon from "../assets/product/search.svg";
+import shoppingBagIcon from "../assets/product/shopping-bag.svg";
+import trashIcon from "../assets/product/trash.svg";
+
+export type IconCategory =
+  | "sidebar"
+  | "add-product"
+  | "edit-product"
+  | "modal"
+  | "product";
+
+export interface IconConfig {
+  category: IconCategory;
+  name: string;
+  path: string;
+}
+
+export interface SidebarItem {
+  id: string;
+  icon: string;
+  label: string;
+  description: string;
+  iconPath: string;
+}
+
+const globalIconMap: Record<string, string> = {
+  "sidebar/house.svg": houseIcon,
+  "sidebar/product.svg": productIcon,
+  "sidebar/file-text.svg": fileTextIcon,
+  "sidebar/settings.svg": settingsIcon,
+  "sidebar/log-out.svg": logOutIcon,
+
+  "add-product/file-plus.svg": filePlusIcon,
+
+  "edit-product/edit.svg": editProductIcon,
+
+  "modal/dark-percent.svg": darkPercentIcon,
+  "modal/dark-tag.svg": darkTagIcon,
+  "modal/light-percent.svg": lightPercentIcon,
+  "modal/light-tag.svg": lightTagIcon,
+
+  "product/dollar-sign.svg": dollarSignIcon,
+  "product/edit.svg": editIcon,
+  "product/plus.svg": plusIcon,
+  "product/refresh.svg": refreshIcon,
+  "product/search.svg": searchIcon,
+  "product/shopping-bag.svg": shoppingBagIcon,
+  "product/trash.svg": trashIcon,
+};
+
+const iconsByCategory: Record<IconCategory, Record<string, string>> = {
+  sidebar: {
+    "house.svg": houseIcon,
+    "product.svg": productIcon,
+    "file-text.svg": fileTextIcon,
+    "settings.svg": settingsIcon,
+    "log-out.svg": logOutIcon,
+  },
+  "add-product": {
+    "file-plus.svg": filePlusIcon,
+  },
+  "edit-product": {
+    "edit.svg": editProductIcon,
+  },
+  modal: {
+    "dark-percent.svg": darkPercentIcon,
+    "dark-tag.svg": darkTagIcon,
+    "light-percent.svg": lightPercentIcon,
+    "light-tag.svg": lightTagIcon,
+  },
+  product: {
+    "dollar-sign.svg": dollarSignIcon,
+    "edit.svg": editIcon,
+    "plus.svg": plusIcon,
+    "refresh.svg": refreshIcon,
+    "search.svg": searchIcon,
+    "shopping-bag.svg": shoppingBagIcon,
+    "trash.svg": trashIcon,
+  },
+};
+
+export function useIcon(category: IconCategory, iconName: string): string {
+  return iconsByCategory[category]?.[iconName] || "";
+}
+
+export function useIconByPath(fullPath: string): string {
+  return globalIconMap[fullPath] || "";
+}
+
+export function useIconsByCategory(
+  category: IconCategory
+): Record<string, string> {
+  return iconsByCategory[category] || {};
+}
+
+export function useAllIcons(): IconConfig[] {
+  return Object.keys(globalIconMap).map((fullPath) => {
+    const [category, name] = fullPath.split("/");
+    return {
+      category: category as IconCategory,
+      name,
+      path: globalIconMap[fullPath],
+    };
+  });
+}
+
+export function useSidebarItems(): SidebarItem[] {
+  return sidebarItemsData.map((item) => ({
+    ...item,
+    iconPath: iconsByCategory.sidebar[item.icon] || "",
+  }));
+}

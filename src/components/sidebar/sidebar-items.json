@@ -1,0 +1,26 @@
+[
+  {
+    "id": "dashboard",
+    "icon": "house.svg",
+    "label": "Casa",
+    "description": "Dashboard"
+  },
+  {
+    "id": "products",
+    "icon": "product.svg",
+    "label": "Bolsa",
+    "description": "Produtos"
+  },
+  {
+    "id": "reports",
+    "icon": "file-text.svg",
+    "label": "Relatórios",
+    "description": "Relatórios"
+  },
+  {
+    "id": "settings",
+    "icon": "settings.svg",
+    "label": "Engrenagem",
+    "description": "Administração"
+  }
+]
