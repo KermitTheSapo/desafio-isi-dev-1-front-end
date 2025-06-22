@@ -1,11 +1,8 @@
 import type { SidebarRowProps } from "./types";
 import * as S from "./index.style";
+import React from "react";
 
-export default function SidebarRow({
-  icon,
-  label,
-  description,
-}: Readonly<SidebarRowProps>) {
+function SidebarRow({ icon, label, description }: Readonly<SidebarRowProps>) {
   return (
     <S.Row>
       <img src={icon} alt={label} />
@@ -13,3 +10,5 @@ export default function SidebarRow({
     </S.Row>
   );
 }
+
+export default React.memo(SidebarRow);

@@ -7,6 +7,16 @@ export const theme = {
     buttonDark: "#F8FAFC",
     primaryForeground: "#F8FAFC",
     placeholder: "#64748B",
+    black: "#000000",
+    profile: "#E2E8F0",
+    borderColor: "#F1F5F9",
+    logoutButton: "#F87171",
+    hoverButton: "#F8FAFC",
+  },
+  borderRadius: {
+    small: "4px",
+    medium: "6px",
+    large: "8px",
   },
   spacing: {
     small: "8px",

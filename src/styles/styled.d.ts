@@ -10,6 +10,16 @@ declare module "styled-components" {
       buttonDark: string;
       primaryForeground: string;
       placeholder: string;
+      black: string;
+      profile: string;
+      borderColor: string;
+      logoutButton: string;
+      hoverButton: string;
+    };
+    borderRadius: {
+      small: string;
+      medium: string;
+      large: string;
     };
     fontWeight: {
       regular: number;
