@@ -4,28 +4,34 @@ import { RoutesUrls } from "./utils/enums/routes-url";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import SideBarHeader from "./components/sidebar-header/index.component";
+import { ProductListController } from "./pages/product-list/controller/product-list.controller";
+import { ProductFormController } from "./pages/product-form/controller/product-form.controller";
 
 export default function App() {
   const routes = [
     {
       path: RoutesUrls.BASE_URL,
-      element: <h1>Base URL</h1>,
+      element: <ProductListController />,
     },
     {
       path: RoutesUrls.CONFIG,
-      element: <h1>Config</h1>,
+      element: <ProductListController />,
     },
     {
-      path: RoutesUrls.PRODUCT_ADD, 
-      element: <h1>Product Add</h1>,
+      path: RoutesUrls.PRODUCT_LIST,
+      element: <ProductListController />,
+    },
+    {
+      path: RoutesUrls.PRODUCT_ADD,
+      element: <ProductFormController />,
     },
     {
       path: RoutesUrls.PRODUCT_EDIT,
-      element: <h1>Product Edit</h1>,
+      element: <ProductFormController />,
     },
     {
       path: RoutesUrls.REPORTS,
-      element: <h1>Reports</h1>,
+      element: <ProductListController />,
     },
   ];
 

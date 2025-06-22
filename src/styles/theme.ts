@@ -5,13 +5,16 @@ export const theme = {
     subtitle: "#555555D1",
     buttonWhite: "#0F172A",
     buttonDark: "#F8FAFC",
-    primaryForeground: "#F8FAFC",
     placeholder: "#64748B",
     black: "#000000",
     profile: "#E2E8F0",
     borderColor: "#F1F5F9",
     logoutButton: "#F87171",
     hoverButton: "#F8FAFC",
+    labelInput: "#020617",
+    borderInput: "#A8B5D3",
+    placeholderInput: "#475569",
+    textButtonWhite: "#FFFFFF",
   },
   borderRadius: {
     small: "4px",
@@ -22,6 +25,7 @@ export const theme = {
     small: "8px",
     medium: "16px",
     large: "24px",
+    xLarge: "48px",
   },
   fontSizes: {
     small: "0.875rem",
@@ -37,6 +41,8 @@ export const theme = {
   },
   background: {
     primary: "#FFFFFF",
+    primaryForeground: "#F8FAFC",
+    darkButton: "#0F172A",
   },
 };
 

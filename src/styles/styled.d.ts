@@ -8,13 +8,17 @@ declare module "styled-components" {
       subtitle: string;
       buttonWhite: string;
       buttonDark: string;
-      primaryForeground: string;
+
       placeholder: string;
       black: string;
       profile: string;
       borderColor: string;
       logoutButton: string;
       hoverButton: string;
+      labelInput: string;
+      borderInput: string;
+      placeholderInput: string;
+      textButtonWhite: string;
     };
     borderRadius: {
       small: string;
@@ -29,11 +33,14 @@ declare module "styled-components" {
     };
     background: {
       primary: string;
+      darkButton: string;
+      primaryForeground: string;
     };
     spacing: {
       small: string;
       medium: string;
       large: string;
+      xLarge: string;
     };
     fontSizes: {
       small: string;

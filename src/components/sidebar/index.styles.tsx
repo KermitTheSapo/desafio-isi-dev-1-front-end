@@ -5,7 +5,7 @@ export const SideBarSection = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 10%;
+  width: 15%;
   border-right: 0.5px solid ${({ theme }) => theme.colors.borderColor};
   gap: ${({ theme }) => theme.spacing.small};
   height: 100vh;

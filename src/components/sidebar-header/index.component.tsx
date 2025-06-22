@@ -13,7 +13,7 @@ function SideBarHeader({
       <Sidebar />
       <S.HeaderContent>
         <Header description="Arthur Morgan" />
-        {children}
+        <S.Content>{children}</S.Content>
       </S.HeaderContent>
     </S.FixedSection>
   );

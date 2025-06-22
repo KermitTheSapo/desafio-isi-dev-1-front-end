@@ -1,8 +1,8 @@
 export const RoutesUrls = {
   BASE_URL: "/",
-  PRODUCT_ADD: "/product/add",
-  PRODUCT_LIST: "/product/list",
-  PRODUCT_EDIT: "/product/edit",
+  PRODUCT_LIST: "/product-list",
+  PRODUCT_ADD: "/product-form/add",
+  PRODUCT_EDIT: "/product-form/edit/:id",
   REPORTS: "/reports",
   CONFIG: "/config",
 } as const;

@@ -14,3 +14,13 @@ export const HeaderContent = styled.div`
   flex-direction: column;
   height: 100vh;
 `;
+
+export const Content = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.background.primaryForeground};
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+`;
