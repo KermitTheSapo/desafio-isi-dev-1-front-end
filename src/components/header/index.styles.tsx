@@ -8,6 +8,7 @@ export const Row = styled.section`
   align-items: center;
   padding: ${({ theme }) => theme.spacing.medium};
   background-color: ${({ theme }) => theme.background.primary};
+  border-bottom: 0.5px solid ${({ theme }) => theme.colors.borderColor};
 `;
 
 export const Profile = styled.div`

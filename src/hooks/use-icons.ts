@@ -1,4 +1,4 @@
-import sidebarItemsData from "./sidebar-items.json";
+import { sidebarItems } from "./sidebar-items";
 
 import houseIcon from "../assets/sidebar/house.svg";
 import productIcon from "../assets/sidebar/product.svg";
@@ -32,6 +32,7 @@ export interface SidebarItem {
   label: string;
   description: string;
   iconPath: string;
+  url: string;
 }
 
 const globalIconMap: Record<string, string> = {
@@ -75,7 +76,7 @@ export function useIcon(fullPath: string): string {
 }
 
 export function useSidebarItems(): SidebarItem[] {
-  return sidebarItemsData.map((item) => ({
+  return sidebarItems.map((item) => ({
     ...item,
     iconPath: iconsByCategory.sidebar[item.icon] || "",
   }));

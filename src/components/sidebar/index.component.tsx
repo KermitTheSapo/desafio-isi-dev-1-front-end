@@ -2,10 +2,19 @@ import SidebarRow from "./sidebar-row/index.component";
 import * as S from "./index.styles";
 import React from "react";
 import { useIcon, useSidebarItems } from "../../hooks/use-icons";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
   const sidebarItems = useSidebarItems();
+  const navigate = useNavigate();
   const favicon = useIcon("sidebar/favicon.svg");
+
+  const handleRowClick = React.useCallback(
+    (url: string) => {
+      navigate(url);
+    },
+    [navigate]
+  );
 
   return (
     <S.SideBarSection>
@@ -21,6 +30,7 @@ function Sidebar() {
               icon={item.iconPath}
               label={item.label}
               description={item.description}
+              onClick={() => handleRowClick(item.url)}
             />
           ))}
         </S.RowsSection>
