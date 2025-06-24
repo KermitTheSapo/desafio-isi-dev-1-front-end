@@ -8,7 +8,6 @@ declare module "styled-components" {
       subtitle: string;
       buttonWhite: string;
       buttonDark: string;
-
       placeholder: string;
       black: string;
       profile: string;
@@ -19,6 +18,9 @@ declare module "styled-components" {
       borderInput: string;
       placeholderInput: string;
       textButtonWhite: string;
+      discountText: string;
+      formBorder: string;
+      formDescription: string;
     };
     borderRadius: {
       small: string;
@@ -26,6 +28,7 @@ declare module "styled-components" {
       large: string;
     };
     fontWeight: {
+      light: number;
       regular: number;
       medium: number;
       semiBold: number;
@@ -33,6 +36,7 @@ declare module "styled-components" {
     };
     background: {
       primary: string;
+      discount: string;
       darkButton: string;
       primaryForeground: string;
     };

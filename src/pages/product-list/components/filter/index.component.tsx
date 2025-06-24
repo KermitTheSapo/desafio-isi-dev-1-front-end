@@ -3,7 +3,11 @@ import SearchInput from "../../../../components/search-input/index.component";
 import type { FilterProps } from "./types";
 import Button from "../../../../components/button/index.component";
 
-export function Filter({ searchIcon, plusIcon }: Readonly<FilterProps>) {
+export function Filter({
+  searchIcon,
+  plusIcon,
+  handleRedirectToCreateProduct,
+}: Readonly<FilterProps>) {
   return (
     <S.FilterSection>
       <S.FilterPriceSection>
@@ -25,7 +29,11 @@ export function Filter({ searchIcon, plusIcon }: Readonly<FilterProps>) {
           width="306px"
           placeholder="Buscar produtos..."
         />
-        <Button text="Criar Produto" onClick={() => {}} icon={plusIcon} />
+        <Button
+          text="Criar Produto"
+          onClick={handleRedirectToCreateProduct}
+          icon={plusIcon}
+        />
       </S.SearchAndCreateProduct>
     </S.FilterSection>
   );

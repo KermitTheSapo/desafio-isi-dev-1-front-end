@@ -15,6 +15,9 @@ export const theme = {
     borderInput: "#A8B5D3",
     placeholderInput: "#475569",
     textButtonWhite: "#FFFFFF",
+    discountText: "#158046",
+    formBorder: "#E9F2FA",
+    formDescription: "#3E424DCC",
   },
   borderRadius: {
     small: "4px",
@@ -34,6 +37,7 @@ export const theme = {
     xLarge: "1.5rem",
   },
   fontWeight: {
+    light: 300,
     regular: 400,
     medium: 500,
     semiBold: 600,
@@ -43,6 +47,7 @@ export const theme = {
     primary: "#FFFFFF",
     primaryForeground: "#F8FAFC",
     darkButton: "#0F172A",
+    discount: "#DCFCE7",
   },
 };
 

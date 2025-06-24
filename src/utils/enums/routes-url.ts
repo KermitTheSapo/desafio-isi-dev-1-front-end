@@ -2,7 +2,7 @@ export const RoutesUrls = {
   BASE_URL: "/",
   PRODUCT_LIST: "/product-list",
   PRODUCT_ADD: "/product-form/add",
-  PRODUCT_EDIT: "/product-form/edit/:id",
+  PRODUCT_EDIT: "/product-form/edit",
   REPORTS: "/reports",
   CONFIG: "/config",
 } as const;

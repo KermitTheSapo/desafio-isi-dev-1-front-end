@@ -1,8 +1,9 @@
-import type { TableRowProps } from "./components/table/types";
+import type { ProductsResponse } from "../../types/api";
 
 export type ProductListProps = {
   bagIcon: string;
   searchIcon: string;
+  handleRedirectToCreateProduct: () => void;
   plusIcon: string;
-  tableData: ReadonlyArray<TableRowProps>;
+  data: ProductsResponse;
 };

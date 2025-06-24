@@ -10,7 +10,6 @@ function SearchInput({
   width,
 }: Readonly<SearchInputProps>) {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("Input changed:", event.target.value);
     onChange?.(event.target.value);
   };
 
@@ -18,7 +17,7 @@ function SearchInput({
     <S.Container>
       {icon && <S.IconContainer src={icon} alt="" />}
       <S.Input
-        hasIcon={!!icon}
+        $hasIcon={!!icon}
         placeholder={placeholder}
         value={value}
         onChange={handleInputChange}

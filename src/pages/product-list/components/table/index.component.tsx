@@ -3,10 +3,18 @@ import * as S from "./index.styles.tsx";
 import React from "react";
 import TableRow from "./table-row/index.component.tsx";
 
-function Table({ tableItens }: Readonly<TableProps>) {
+function Table({ data }: Readonly<TableProps>) {
   return (
     <S.Table>
-      {tableItens.map((item) => (
+      <S.TableHeader>
+        <S.TableHeaderItem>Nome</S.TableHeaderItem>
+        <S.TableHeaderItem>Descrição</S.TableHeaderItem>
+        <S.TableHeaderItem>Categoria</S.TableHeaderItem>
+        <S.TableHeaderItem>Preço</S.TableHeaderItem>
+        <S.TableHeaderItem>Estoque</S.TableHeaderItem>
+        <S.TableHeaderItem>Ações</S.TableHeaderItem>
+      </S.TableHeader>
+      {data.map((item) => (
         <TableRow key={item.id} {...item} />
       ))}
     </S.Table>

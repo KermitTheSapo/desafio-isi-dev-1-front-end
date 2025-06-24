@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface InputProps {
-  hasIcon: boolean;
+  $hasIcon: boolean;
   width?: string;
 }
 interface InputContainerProps {
@@ -20,7 +20,7 @@ export const Input = styled.input<InputProps>`
   border: 1px solid ${({ theme }) => theme.colors.borderInput};
   background-color: ${({ theme }) => theme.background.primary};
   padding: 0 12px;
-  padding-left: ${({ hasIcon }) => (hasIcon ? "40px" : "12px")};
+  padding-left: ${({ $hasIcon }) => ($hasIcon ? "40px" : "12px")};
   font-size: ${({ theme }) => theme.fontSizes.small};
   outline: none;
   color: ${({ theme }) => theme.colors.black};

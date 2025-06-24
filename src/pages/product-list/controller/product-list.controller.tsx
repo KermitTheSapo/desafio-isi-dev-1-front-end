@@ -1,63 +1,51 @@
+import { useNavigate } from "react-router-dom";
 import { useIcon } from "../../../hooks/use-icons";
-import type { TableRowProps } from "../components/table/types";
 import { ProductList } from "../view/product-list.view";
+import { RoutesUrls } from "../../../utils/enums/routes-url";
+import { useProducts } from "../../../hooks";
+import React from "react";
+import type { ProductsResponse } from "../../../types/api";
 
 export function ProductListController() {
   const bagIcon = useIcon("product-list/shopping-bag.svg");
   const searchIcon = useIcon("product-list/search.svg");
   const plusIcon = useIcon("product-list/plus.svg");
-  const editIcon = useIcon("product-list/edit.svg");
-  const moneyIcon = useIcon("product-list/dollar-sign.svg");
-  const deleteIcon = useIcon("product-list/trash.svg");
-  const tableData: ReadonlyArray<TableRowProps> = [
-    {
-      id: "1",
-      name: "Smartphone XYZ",
-      price: 1799.99,
-      category: "Eletrônicos",
-      description: "Smartphone premium com camera",
-      discount: "10%",
-      finalPrice: 1619.99,
-      hasCouponApplied: true,
-      stock: 10,
-      deleteIcon: deleteIcon,
-      editIcon: editIcon,
-      moneyIcon: moneyIcon,
+  const navigate = useNavigate();
+  const [data, setData] = React.useState<ProductsResponse>({
+    data: [],
+    meta: {
+      limit: 10,
+      page: 1,
+      totalItems: 0,
+      totalPages: 0,
     },
-    {
-      id: "2",
-      name: "Smartphone XYZ",
-      price: 1799.99,
-      category: "Eletrônicos",
-      description: "Smartphone premium com camera",
-      discount: "10%",
-      finalPrice: 1619.99,
-      hasCouponApplied: false,
-      stock: 10,
-      deleteIcon: deleteIcon,
-      editIcon: editIcon,
-      moneyIcon: moneyIcon,
-    },
-    {
-      id: "3",
-      name: "Smartphone XYZ",
-      price: 1799.99,
-      category: "Eletrônicos",
-      description: "Smartphone premium com camera",
-      discount: "10%",
-      finalPrice: 1619.99,
-      hasCouponApplied: true,
-      stock: 10,
-      deleteIcon: deleteIcon,
-      editIcon: editIcon,
-      moneyIcon: moneyIcon,
-    },
-  ];
+  });
+
+  const { actions } = useProducts();
+
+  const fetchData = React.useCallback(async () => {
+    try {
+      const data = await actions.fetchProducts();
+      setData(data);
+    } catch (error) {
+      console.error("error:", error);
+    }
+  }, [actions]);
+
+  React.useEffect(() => {
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleRedirectToCreateProduct = React.useCallback(() => {
+    navigate(RoutesUrls.PRODUCT_ADD);
+  }, [navigate]);
   return (
     <ProductList
       bagIcon={bagIcon}
+      handleRedirectToCreateProduct={handleRedirectToCreateProduct}
       searchIcon={searchIcon}
-      tableData={tableData}
+      data={data}
       plusIcon={plusIcon}
     />
   );
