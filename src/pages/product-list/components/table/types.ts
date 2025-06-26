@@ -1,5 +1,6 @@
 import type { Product } from "../../../../types/api";
 
-export type TableProps = {
+export interface TableProps {
   data: Product[];
-};
+  isLoading?: boolean;
+}

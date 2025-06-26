@@ -1,3 +1,4 @@
 export { useProducts } from "./use-products";
+export { useIcon, useSidebarItems, type SidebarItem } from "./use-icons";
 export { useCoupons } from "./use-coupons";
-export { useIcon, useSidebarItems } from "./use-icons";
+export { useAppRoutes, type RouteConfig } from "./use-app-routes";

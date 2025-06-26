@@ -1,9 +1,16 @@
 import type { ProductsResponse } from "../../types/api";
 
-export type ProductListProps = {
-  bagIcon: string;
-  searchIcon: string;
-  handleRedirectToCreateProduct: () => void;
-  plusIcon: string;
-  data: ProductsResponse;
-};
+export interface ProductListIcons {
+  bag: string;
+  search: string;
+  plus: string;
+}
+
+export interface ProductListProps {
+  icons: ProductListIcons;
+  productsData: ProductsResponse;
+  isLoading: boolean;
+  error: string | null;
+  onCreateProduct: () => void;
+  onRefresh: () => Promise<void>;
+}

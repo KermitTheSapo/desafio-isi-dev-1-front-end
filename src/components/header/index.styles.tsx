@@ -4,7 +4,7 @@ export const Row = styled.section`
   display: flex;
   justify-content: end;
   gap: 16px;
-  width: 85%;
+  width: 100%;
   align-items: center;
   padding: ${({ theme }) => theme.spacing.medium};
   background-color: ${({ theme }) => theme.background.primary};

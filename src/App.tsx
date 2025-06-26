@@ -1,39 +1,13 @@
-import { GlobalStyles } from "./styles/global-styles";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { RoutesUrls } from "./utils/enums/routes-url";
 import { ThemeProvider } from "styled-components";
+
+import { GlobalStyles } from "./styles/global-styles";
 import { theme } from "./styles/theme";
 import SideBarHeader from "./components/sidebar-header/index.component";
-import { ProductListController } from "./pages/product-list/controller/product-list.controller";
-import { ProductFormController } from "./pages/product-form/controller/product-form.controller";
+import { useAppRoutes } from "./hooks/use-app-routes";
 
 export default function App() {
-  const routes = [
-    {
-      path: RoutesUrls.BASE_URL,
-      element: <ProductListController />,
-    },
-    {
-      path: RoutesUrls.CONFIG,
-      element: <ProductListController />,
-    },
-    {
-      path: RoutesUrls.PRODUCT_LIST,
-      element: <ProductListController />,
-    },
-    {
-      path: RoutesUrls.PRODUCT_ADD,
-      element: <ProductFormController />,
-    },
-    {
-      path: RoutesUrls.PRODUCT_EDIT,
-      element: <ProductFormController />,
-    },
-    {
-      path: RoutesUrls.REPORTS,
-      element: <ProductListController />,
-    },
-  ];
+  const routes = useAppRoutes();
 
   return (
     <ThemeProvider theme={theme}>

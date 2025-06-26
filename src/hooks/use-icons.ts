@@ -23,7 +23,41 @@ import trashIcon from "../assets/product-list/trash.svg";
 
 import { RoutesUrls } from "../utils/enums/routes-url";
 
-const sidebarItems = [
+const ICON_MAP: Record<string, string> = {
+  "sidebar/house.svg": houseIcon,
+  "sidebar/product.svg": productIcon,
+  "sidebar/file-text.svg": fileTextIcon,
+  "sidebar/settings.svg": settingsIcon,
+  "sidebar/log-out.svg": logOutIcon,
+  "sidebar/favicon.svg": favicon,
+
+  "product-form/file-plus.svg": filePlusIcon,
+  "product-form/edit.svg": editProductIcon,
+
+  "modal/dark-percent.svg": darkPercentIcon,
+  "modal/dark-tag.svg": darkTagIcon,
+  "modal/light-percent.svg": lightPercentIcon,
+  "modal/light-tag.svg": lightTagIcon,
+
+  "product-list/dollar-sign.svg": dollarSignIcon,
+  "product-list/edit.svg": editIcon,
+  "product-list/plus.svg": plusIcon,
+  "product-list/refresh.svg": refreshIcon,
+  "product-list/search.svg": searchIcon,
+  "product-list/shopping-bag.svg": shoppingBagIcon,
+  "product-list/trash.svg": trashIcon,
+};
+
+export interface SidebarItem {
+  id: string;
+  icon: string;
+  label: string;
+  description: string;
+  iconPath: string;
+  url: string;
+}
+
+const SIDEBAR_ITEMS_CONFIG = [
   {
     id: "dashboard",
     icon: "house.svg",
@@ -52,61 +86,23 @@ const sidebarItems = [
     description: "Administração",
     url: RoutesUrls.CONFIG,
   },
-];
+] as const;
 
-type IconCategory = "sidebar";
-
-interface SidebarItem {
-  id: string;
-  icon: string;
-  label: string;
-  description: string;
-  iconPath: string;
-  url: string;
-}
-
-const globalIconMap: Record<string, string> = {
-  "sidebar/house.svg": houseIcon,
-  "sidebar/product.svg": productIcon,
-  "sidebar/file-text.svg": fileTextIcon,
-  "sidebar/settings.svg": settingsIcon,
-  "sidebar/log-out.svg": logOutIcon,
-  "sidebar/favicon.svg": favicon,
-
-  "product-form/file-plus.svg": filePlusIcon,
-  "product-form/edit.svg": editProductIcon,
-
-  "modal/dark-percent.svg": darkPercentIcon,
-  "modal/dark-tag.svg": darkTagIcon,
-  "modal/light-percent.svg": lightPercentIcon,
-  "modal/light-tag.svg": lightTagIcon,
-
-  "product-list/dollar-sign.svg": dollarSignIcon,
-  "product-list/edit.svg": editIcon,
-  "product-list/plus.svg": plusIcon,
-  "product-list/refresh.svg": refreshIcon,
-  "product-list/search.svg": searchIcon,
-  "product-list/shopping-bag.svg": shoppingBagIcon,
-  "product-list/trash.svg": trashIcon,
+const SIDEBAR_ICON_MAP: Record<string, string> = {
+  "house.svg": houseIcon,
+  "product.svg": productIcon,
+  "file-text.svg": fileTextIcon,
+  "settings.svg": settingsIcon,
+  "log-out.svg": logOutIcon,
 };
 
-const iconsByCategory: Record<IconCategory, Record<string, string>> = {
-  sidebar: {
-    "house.svg": houseIcon,
-    "product.svg": productIcon,
-    "file-text.svg": fileTextIcon,
-    "settings.svg": settingsIcon,
-    "log-out.svg": logOutIcon,
-  },
-};
-
-export function useIcon(fullPath: string): string {
-  return globalIconMap[fullPath] || "";
+export function useIcon(iconPath: string): string {
+  return ICON_MAP[iconPath] || "";
 }
 
 export function useSidebarItems(): SidebarItem[] {
-  return sidebarItems.map((item) => ({
+  return SIDEBAR_ITEMS_CONFIG.map((item) => ({
     ...item,
-    iconPath: iconsByCategory.sidebar[item.icon] || "",
+    iconPath: SIDEBAR_ICON_MAP[item.icon] || "",
   }));
 }

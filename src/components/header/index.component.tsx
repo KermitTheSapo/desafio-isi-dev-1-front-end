@@ -1,7 +1,7 @@
 import type { HeaderProps } from "./types";
 import * as S from "./index.styles.tsx";
-import { getInitials } from "../../utils/get-initials.ts";
 import React from "react";
+import { getInitials } from "../../utils/get-initials.ts";
 
 function Header({ description }: Readonly<HeaderProps>) {
   return (

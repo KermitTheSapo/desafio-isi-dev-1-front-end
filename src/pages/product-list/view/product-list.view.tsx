@@ -5,21 +5,31 @@ import type { ProductListProps } from "../types";
 import * as S from "./index.styles";
 
 export function ProductList({
-  bagIcon,
-  searchIcon,
-  data,
-  plusIcon,
-  handleRedirectToCreateProduct,
+  icons,
+  productsData,
+  isLoading,
+  error,
+  onCreateProduct,
+  onRefresh,
 }: Readonly<ProductListProps>) {
+  if (error) {
+    return (
+      <S.ProductSection>
+        <p>Erro: {error}</p>
+        <button onClick={onRefresh}>Tentar novamente</button>
+      </S.ProductSection>
+    );
+  }
+
   return (
     <S.ProductSection>
-      <Title icon={bagIcon} title="Produtos" />
+      <Title icon={icons.bag} title="Produtos" />
       <Filter
-        plusIcon={plusIcon}
-        searchIcon={searchIcon}
-        handleRedirectToCreateProduct={handleRedirectToCreateProduct}
+        plusIcon={icons.plus}
+        searchIcon={icons.search}
+        handleRedirectToCreateProduct={onCreateProduct}
       />
-      <Table data={data.data} />
+      <Table data={productsData.data} isLoading={isLoading} />
     </S.ProductSection>
   );
 }

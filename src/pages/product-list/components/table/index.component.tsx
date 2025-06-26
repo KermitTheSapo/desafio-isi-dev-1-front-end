@@ -1,9 +1,9 @@
+import React from "react";
 import type { TableProps } from "./types";
 import * as S from "./index.styles.tsx";
-import React from "react";
 import TableRow from "./table-row/index.component.tsx";
 
-function Table({ data }: Readonly<TableProps>) {
+function Table({ data, isLoading = false }: Readonly<TableProps>) {
   return (
     <S.Table>
       <S.TableHeader>
@@ -14,9 +14,11 @@ function Table({ data }: Readonly<TableProps>) {
         <S.TableHeaderItem>Estoque</S.TableHeaderItem>
         <S.TableHeaderItem>Ações</S.TableHeaderItem>
       </S.TableHeader>
-      {data.map((item) => (
-        <TableRow key={item.id} {...item} />
-      ))}
+      {isLoading ? (
+        <div>Carregando produtos...</div>
+      ) : (
+        data.map((item) => <TableRow key={item.id} {...item} />)
+      )}
     </S.Table>
   );
 }
