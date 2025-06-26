@@ -11,6 +11,7 @@ export function getInitials(fullName: string): string {
     "do",
     "das",
     "dos",
+    "der",
     "e",
     "del",
     "della",

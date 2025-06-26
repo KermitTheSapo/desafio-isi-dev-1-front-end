@@ -239,3 +239,120 @@ src/
 - Customização completa (cores, tamanhos)
 - Carregamento otimizado
 - Suporte a temas
+
+# Testes Unitários
+
+Este projeto utiliza Jest e Testing Library para testes unitários.
+
+## 📋 Status dos Testes
+
+✅ **Todos os testes estão passando!**
+- **88 testes** executando com sucesso
+- **8 suítes de teste** configuradas
+- **Cobertura de código** implementada
+
+## Estrutura de Testes
+
+Os testes estão organizados na pasta `src/__tests__` com a seguinte estrutura:
+
+```
+src/__tests__/
+├── components/     # Testes de componentes React
+├── hooks/         # Testes de hooks customizados
+├── services/      # Testes de serviços/API
+└── utils/         # Testes de funções utilitárias
+```
+
+## Comandos Disponíveis
+
+- `npm test` - Executa todos os testes
+- `npm run test:watch` - Executa testes em modo watch
+- `npm run test:coverage` - Executa testes com relatório de cobertura
+- `npm run test:ci` - Executa testes em modo CI
+
+## Configuração
+
+### Jest
+
+O Jest está configurado com:
+
+- **Ambiente**: jsdom (para testes de componentes React)
+- **Preset**: ts-jest com suporte a ESM
+- **Setup**: Configuração automática do Testing Library
+- **Cobertura**: Relatórios em texto, lcov e HTML
+
+### Testing Library
+
+Utilizamos as seguintes bibliotecas:
+
+- `@testing-library/react` - Para testes de componentes
+- `@testing-library/jest-dom` - Matchers customizados
+- `@testing-library/user-event` - Para simulação de eventos
+
+## Tipos de Testes Implementados
+
+### 1. Testes de Componentes
+- **Button**: Renderização, cliques, ícones
+- **SearchInput**: Entrada de dados, filtros, eventos
+- **Title**: Exibição de título e ícone
+
+### 2. Testes de Utilitários
+- **formatters**: Formatação de moeda e números
+- **validators**: Validação de email, campos obrigatórios
+- **get-initials**: Geração de iniciais de nomes
+
+### 3. Testes de Hooks
+- **use-app-routes**: Configuração de rotas da aplicação
+
+### 4. Testes de Serviços
+- **api.service**: Operações CRUD da API, tratamento de erros
+
+## Mocks e Configurações
+
+### Mocks Globais
+- `fetch` - Para testes de API
+- `matchMedia` - Para media queries
+- `ResizeObserver` - Para observação de redimensionamento
+- `IntersectionObserver` - Para observação de interseção
+
+### Styled Components
+Os componentes que utilizam Styled Components são testados com um ThemeProvider wrapper.
+
+## Boas Práticas
+
+1. **Organização**: Cada teste deve estar na mesma estrutura do código fonte
+2. **Nomeação**: Arquivos de teste devem terminar com `.test.ts` ou `.test.tsx`
+3. **Descrição**: Use descrições claras para `describe` e `it`
+4. **Isolamento**: Cada teste deve ser independente
+5. **Mocks**: Use mocks para dependências externas
+6. **Cobertura**: Mantenha uma boa cobertura de código
+
+## Executando Testes
+
+Para executar todos os testes:
+```bash
+npm test
+```
+
+Para executar testes específicos:
+```bash
+npm test -- Button.test.tsx
+npm test -- --testPathPattern=components
+```
+
+Para executar com cobertura:
+```bash
+npm run test:coverage
+```
+
+## Debugging
+
+Para debug de testes, você pode:
+
+1. Usar `console.log` nos testes
+2. Usar `screen.debug()` para ver o DOM renderizado
+3. Executar um teste específico com `--verbose`
+
+```bash
+npm test -- --verbose Button.test.tsx
+```
